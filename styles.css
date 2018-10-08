@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Marvel');
+
+html {
+	background-color: lavender;
+	font-family: 'Marvel', sans-serif;
+}
+
+.centered {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nodemcu Leds</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="centered">
+		<h1>
+			Emmanuel Domínguez
+		</h1>
+	</div>
+	<div class="centered">
+		<button onclick="blueOn()">Azul ON</button>
+		<button onclick="blueOff()">Azul OFF</button>	
+	</div>
+	<br>
+	<div class="centered">
+		<button onclick="greenOn()">Verde ON</button>
+		<button onclick="greenOff()">Verde OFF</button>
+	</div>
+	<br>
+	<div class="centered">
+		<button onclick="whiteOn()">Blanco ON</button>
+		<button onclick="whiteOff()">Blanco OFF</button>	
+	</div>
+	<br>
+	<div class="centered">
+		<button onclick="todosOn()">Todos ON</button>
+		<button onclick="todosOff()">Todos OFF</button>	
+	</div>	
+	<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+		  apiKey: "AIzaSyB_i7SagPVBlYGAUV4Hrs4J5eaugB6JAqo",
+		  authDomain: "nodemcu-9002c.firebaseapp.com",
+		  databaseURL: "https://nodemcu-9002c.firebaseio.com",
+		  projectId: "nodemcu-9002c",
+		  storageBucket: "nodemcu-9002c.appspot.com",
+		  messagingSenderId: "682567648332"
+	  	};
+		firebase.initializeApp(config);
+		var database = firebase.database();
+		function blueOn() {
+			firebase.database().ref().child('STATUS_BLUE').set(1);
+		}
+		function blueOff() {
+			firebase.database().ref().child('STATUS_BLUE').set(0);
+		}
+		function greenOn() {
+			firebase.database().ref().child('STATUS_GREEN').set(1);
+		}
+		function greenOff() {
+			firebase.database().ref().child('STATUS_GREEN').set(0);
+		}
+		function whiteOn() {
+			firebase.database().ref().child('STATUS_WHITE').set(1);
+		}
+		function whiteOff() {
+			firebase.database().ref().child('STATUS_WHITE').set(0);
+		}
+		function todosOn() {
+			firebase.database().ref().child('STATUS_BLUE').set(1);
+			firebase.database().ref().child('STATUS_GREEN').set(1);
+			firebase.database().ref().child('STATUS_WHITE').set(1);
+		}
+		function todosOff() {
+			firebase.database().ref().child('STATUS_BLUE').set(0);
+			firebase.database().ref().child('STATUS_GREEN').set(0);
+			firebase.database().ref().child('STATUS_WHITE').set(0);
+		}
+	</script>
+</body>
+</html>
